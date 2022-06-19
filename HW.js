@@ -26,7 +26,7 @@ let item_6 = 15
 // Создать переменную item_6. Присвоить переменной item_6 значение 15
 let item_6_type
 // Создать переменную item_6_type
-item_6_type = (typeof item_6)
+item_6_type = typeof item_6
 // Присвоить переменной item_6_type тип переменной item_6
 console.log("item_6 ==", item_6)
 console.log("item_6_type ==", item_6_type)
@@ -35,7 +35,7 @@ let item_7 = (item_6).toString
 // Создать переменную item_7 и в ней преобразовать item_6 в String
 let item_7_type
 // Создать переменную item_7_type
-item_7_type = (typeof item_7)
+item_7_type = typeof item_7
 // Присвоить переменной item_7_type тип переменной item_7
 console.log("item_7 ==", item_7)
 console.log("item_7_type ==", item_7_type)
