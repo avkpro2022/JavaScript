@@ -22,3 +22,7 @@ let checkAge = function(age_1) {
 
 let w = prompt(`Enter your age_1`)
 checkAge(w)
+
+
+// Преобразовать задание 3* таким образом,
+// чтобы возраст вводится используя функцию prompt в привязанной верстке
