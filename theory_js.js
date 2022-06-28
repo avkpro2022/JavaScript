@@ -1,8 +1,8 @@
-let i = 50;   
-while(i <= 100) {
-   console.log(i);
-   i++;
-}
+// let i = 50;   
+// while(i <= 100) {
+//    console.log(i);
+//    i++;
+// }
 
 // // let i = 20;  
 // // do {
@@ -118,3 +118,14 @@ while(i <= 100) {
  
 //  callPayment(); //применится валюта указанная по умолчанию
 //  callPayment('₽'); //применится валюта: рубль
+
+
+// Возврат функции:
+function sqr(a) {
+   let result = a * a;
+ 
+   return result;
+ }
+ 
+ let result = sqr(22); //теперь в переменной будет храниться значение 16
+ console.log(result);
