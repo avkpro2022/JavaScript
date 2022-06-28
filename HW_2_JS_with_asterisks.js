@@ -23,8 +23,15 @@
 // :):):):)
 // :):):):):)
 
-let a = `:)`
-while(a <= 5) {
-console.log(a)
- a += 1
- }
+
+
+
+
+function printSmile(string) {let smile = `:)`; console.log(string + smile)}
+
+
+printSmile(1)
+
+// 2*. Преобразовать 2 задачу в функцию, принимающую на вход строку,
+// которая и будет выводиться в консоль (как в условии смайлик), а также количество строк для вывода 
+// e.g. function printSmile(stroka, numberOfRows)
