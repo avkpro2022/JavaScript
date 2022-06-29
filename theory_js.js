@@ -121,11 +121,23 @@
 
 
 // Возврат функции:
-function sqr(a) {
-   let result = a * a;
+// function sqr(a) {
+//    let result = a * a;
  
-   return result;
- }
+//    return result;
+//  }
  
- let result = sqr(22); //теперь в переменной будет храниться значение 16
- console.log(result);
+//  let result = sqr(22); //теперь в переменной будет храниться значение 16
+//  console.log(result);
+
+
+a => [":)"]
+b => [":):)"]
+c => [":):):)"]
+d => [":):):):)"]
+r => [":):):):):)"]
+
+a = Object
+a = b = c = d = r
+
+  console.log(r)
