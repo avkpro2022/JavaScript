@@ -23,9 +23,9 @@
 
 // 1*. Преобразовать 1 задачу в функцию, принимающую на вход степень, в которую будет возводиться число 1*. Преобразовать 1 задачу в функцию, принимающую на вход степень, в которую будет возводиться число 2
 
-function exponentiation(a) {let i = 2; console.log(i**a)}
+// function exponentiation(a) {let i = 2; console.log(i**a)}
 
-exponentiation(23)
+// exponentiation(23)
 
 // 2. Написать скрипт, который выведет 5 строк в консоль таким образом, чтобы в первой строчке выводилось :), во второй :):) и так далее
 // Пример в консоли:
@@ -60,11 +60,39 @@ exponentiation(23)
 
 // Проверки: 'case', 'Case', 'Check-list'
 
-function getWordStructure(word) {
+// function getWordStructure(word) {
+// let vowelLetters = [`a`, `e`, `i`, `o`, `u`, `y`,];
+// let consonantLetters = [`b`, `c`, `d`, `f`, `g`, `h`, `j`, `k`, `l`, `m`, `n`, `p`, `q`, `r`, `s`, `t`, `v`, `w`, `y`, `z`,];
 
-}
+// let vowelLettersCount = 0;
+// let consonantLettersCount = 0;
+
+// for(let char of word.toLowerCase()) {
+//     if(vowelLetters.includes(char)) vowelLettersCount++
+//     else if (consonantLetters.includes(char)) consonantLettersCount++
+// }
+//     console.log(`Слово ${word} состоит из ${vowelLettersCount} гласной(ых) и ${consonantLettersCount} согласной(ых) букв`)
+// }
+
+// getWordStructure('Check-list')
 
 // 4**. Написать функцию, которая проверяет, является ли слово палиндромом
 // e.g. function isPalindrom(word)
-
 // Проверки: 'abba', 'Abba'
+
+function isPalindrom(word) {
+ 
+    word = word.toLowerCase()
+    let theWholeWord = word.length;
+    let halfAWord = Math.floor(theWholeWord/2);
+
+    for ( let i = 0; i < halfAWord; i++ ) {
+        if (word[i] !== word[theWholeWord - 1 - i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+console.log(isPalindrom("Kasha"))
