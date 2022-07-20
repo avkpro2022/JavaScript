@@ -2,7 +2,7 @@
 // Откройте в VSCode task2.json файл. Скопируйте из него JSONку, вставьте в свой код (присвоив в переменную).
 // Дан массив объектов. Каждый объект является идентификационной карточкой человека. Нам нужно хранить только уникальные значения в этом массиве. Реализуйте функцию, которая будет выполнять эту работу.
 
-[{
+let user = [{
     "name": "Leanne Graham",
     "username": "Bret",
     "email": "Sincere@april.biz",
@@ -356,16 +356,12 @@
 }
 ]
 
-const fs = require("fs");
-
-let users = JSON.parse(fs.readFileSync("users"))
-
-function search() {
-    let massis = [];
-    users.forEach(el => {
-        if(!massiv.includes(JSON.stringify(el))) massiv.push(JSON.stringify(el))
+function uniquiFuncl() {
+    let uniquel = [];
+    user.forEach(el => {
+        if(!uniquel.includes(JSON.stringify(el))) uniquel.push(JSON.stringify(el))
     })
- return massiv.map(el => JSON.parse(el))
+ return uniquel.map(el => JSON.parse(el))
 
 }
-console.log(search())
+console.log(uniquiFuncl())
