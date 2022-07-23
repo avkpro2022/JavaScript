@@ -59,39 +59,51 @@ const enterprises = [
 // Рядом указать количество сотрудников.
 // Для предприятия посчитать сумму всех сотрудников во всех отделах.
 
-const employeesCountHelper = function (number) {
-    lastNumber = number.toString().split('').pop();
-    if (lastNumber && number) {
-        if (lastNumber == 1) return `${number} сотрудник`;
-        else if (lastNumber > 1 && lastNumber < 5) return `&{number} сотрудников`;
-        else return `${number} сотрудников`;
-    } else return "нет сотрудников";
-    };
+// const employeesCountHelper = function (number) {
+//     lastNumber = number.toString().split('').pop();
+//     if (lastNumber && number) {
+//         if (lastNumber == 1) return `${number} сотрудник`;
+//         else if (lastNumber > 1 && lastNumber < 5) return `&{number} сотрудников`;
+//         else return `${number} сотрудников`;
+//     } else return "нет сотрудников";
+//     };
 
-const getStructure = function(company) {
-    company.forEach(comp => {
-        let depts = [];
-        let count = 0;
-        depts.push(comp.name);
-        if(comp.departments) {
-            comp.departments.forEach(dept => {
-                count += dept.employees_count;
-                depts.push(` - ${dept.name} (${employeesCountHelper(dept.employees_count)})`);
-            });
-            depts[0] += ` (${employeesCountHelper(count)})`;
-}
-        console.log(depts.join(`\n`))
-    });
-};
+// const getStructure = function(company) {
+//     company.forEach(comp => {
+//         let depts = [];
+//         let count = 0;
+//         depts.push(comp.name);
+//         if(comp.departments) {
+//             comp.departments.forEach(dept => {
+//                 count += dept.employees_count;
+//                 depts.push(` - ${dept.name} (${employeesCountHelper(dept.employees_count)})`);
+//             });
+//             depts[0] += ` (${employeesCountHelper(count)})`;
+// }
+//         console.log(depts.join(`\n`))
+//     });
+// };
 
-getStructure(enterprises)
+// getStructure(enterprises)
 
 
 // 2. Написать функцию, которая будет принимать 1 аргумент (id отдела или название отдела и возвращать название предприятия, к которому относится).
 
-// Пример:
-// getEnterpriseName(4) // Предприятие 1
-// getEnterpriseName("Отдел маркетинга") // Предприятие 2
+const getEnterpriseByDepartment = function(val) {
+     let enterprise;
+     enterprises.forEach(ent => {
+      let department;
+      if(ent.departments) {
+        department = ent.departments.find(dept => {return dept.id === val || dept.name === val})
+      }
+      if(department) enterprise = ent;
+     })
+     return enterprise ? enterprise : `Нет организации с id == ${val} или именем == ${val}`
+}
+
+console.log(getEnterpriseByDepartment(3))
+
+
 
 // 3. Написать функцию, которая будет добавлять предприятие. В качестве аргумента принимает название предприятия
 
