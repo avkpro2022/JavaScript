@@ -59,14 +59,14 @@ const enterprises = [
 // Рядом указать количество сотрудников.
 // Для предприятия посчитать сумму всех сотрудников во всех отделах.
 
-// const employeesCountHelper = function (number) {
-//     lastNumber = number.toString().split('').pop();
-//     if (lastNumber && number) {
-//         if (lastNumber == 1) return `${number} сотрудник`;
-//         else if (lastNumber > 1 && lastNumber < 5) return `&{number} сотрудников`;
-//         else return `${number} сотрудников`;
-//     } else return "нет сотрудников";
-//     };
+const employeesCountHelper = function (number) {
+    lastNumber = number.toString().split('').pop();
+    if (lastNumber && number) {
+        if (lastNumber == 1) return `${number} сотрудник`;
+        else if (lastNumber > 1 && lastNumber < 5) return `&{number} сотрудников`;
+        else return `${number} сотрудников`;
+    } else return "нет сотрудников";
+    };
 
 // const getStructure = function(company) {
 //     company.forEach(comp => {
@@ -101,24 +101,70 @@ const getEnterpriseByDepartment = function(val) {
      return enterprise ? enterprise : `Нет организации с id == ${val} или именем == ${val}`
 }
 
-console.log(getEnterpriseByDepartment(3))
+// console.log(getEnterpriseByDepartment(3))
 
 
 
 // 3. Написать функцию, которая будет добавлять предприятие. В качестве аргумента принимает название предприятия
 
-// Пример:
-// addEnterprise("Название нового предприятия")
+const getNewID = function(company) {
+  let maxID = 0;
+  company.forEach(comp => {
+     if(maxID < comp.id) maxID = comp.id
+     if(comp.departments) {
+      comp.departments.forEach(dept => {
+        if(maxID < dept.id) maxID = dept.id
+      })
+     }
+    })
+    return maxID +1;
+}
+
+// console.log(getNewID(enterprises))
+
+
+const addEnterprise = function(name) {
+  enterprises.push({
+    id: getNewID(enterprises),
+    name: name,
+    departments: []
+  })
+}
+addEnterprise('Testers')
+
+// console.log(enterprises)
+
 
 // 4. Написать функцию, которая будет добавлять отдел в предприятие. В качестве аргумента принимает id предприятия, в которое будет добавлен отдел и название отдела.
 
-// Пример:
-// addDepartment(1, "Название нового отдела")
+const getEnterprise = function(val) {
+  let enterprise = enterprises.find(el => el.id === val || el.name === val)
+  return enterprise ? enterprise : false
+}
+
+const addDepartment = function(entId, name, count = 0) {
+     const enterprise = getEnterprise(entId)
+     if(enterprise) enterprise.departments.push({
+      id: getNewID(enterprises),
+      name: name,
+      employees_count: count, 
+     })
+}
+
+addDepartment(11, 'QA', 20)
+// console.log(enterprises[3])
+
 
 // 5. Написать функцию для редактирования названия предприятия. Принимает в качестве аргумента id предприятия и новое имя предприятия.
 
-// Пример:
-// editEnterprise(1, "Новое название предприятия")
+const editEnterprise = function(val, name) {
+  const enterprise = getEnterprise(val)
+  if(enterprise) enterprise.name = name;
+  else throw new Error('No such enterprise')
+}
+
+editEnterprise(111, 'Devs')
+// console.log(enterprises[3])
 
 
 // 6. Написать функцию для редактирования названия отдела. Принимает в качестве аргумента id отдела и новое имя отдела.
