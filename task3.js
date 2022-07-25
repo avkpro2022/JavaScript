@@ -134,6 +134,19 @@ addEnterprise('Testers')
 
 // console.log(enterprises)
 
+const getDepartment = function(val) {
+  let department;
+  enterprises.forEach((company) => {
+    const dept = company.departments.find((el) => {
+      return el.id == val || el.name == val;
+    });
+    if (dept) department = dept;
+  });
+  return department ? department : fals
+}
+
+// console.log(enterprises)
+
 
 // 4. Написать функцию, которая будет добавлять отдел в предприятие. В качестве аргумента принимает id предприятия, в которое будет добавлен отдел и название отдела.
 
@@ -163,29 +176,59 @@ const editEnterprise = function(val, name) {
   else throw new Error('No such enterprise')
 }
 
-editEnterprise(111, 'Devs')
+editEnterprise(11, 'Devs')
 // console.log(enterprises[3])
 
 
 // 6. Написать функцию для редактирования названия отдела. Принимает в качестве аргумента id отдела и новое имя отдела.
 
-// Пример:
-// editDepartment(7, "Новое название отдела")
+
+const editDepartment = function(val, name) {
+  const department = getDepartment(val);
+  if(department) department.name = name;
+    else throw new Error(`No such department`)
+}
+
+editDepartment(12, `QAQ`)
+// console.log(enterprises[3])
 
 
 // 7. Написать функцию для удаления предприятия. В качестве аргумента принимает id предприятия.
 
-// Пример:
-// deleteEnterprise(1)
 
+const deleteEnterprise = function(val) {
+  const index = enterprises.findIndex(el => el.id === val)
+  enterprises.splice(index, 1)
+}
+
+// deleteEnterprise(9)
+// console.log(enterprises)
 
 // 8. Написать функцию для удаления отдела. В качестве аргумента принимает id отдела. Удалить отдел можно только, если в нем нет сотрудников.
 
-// Пример:
-// deleteDepartment(3)
 
+ const deleteDepartment = function(val) {
+  enterprises.forEach(e => {
+    let index = e.departments.findIndex(d => d.id === val && d.employees_count === 0);
+    if(index !== -1) {
+      e.departments.splice(index, 1);
+    }
+  })
+ }
+
+//  deleteDepartment(10)
+//  console.log(enterprises[2])
 
 // 9. Написать функцию для переноса сотрудников между отделами одного предприятия. В качестве аргумента принимает два значения: id отдела, из которого будут переноситься сотрудники и id отдела, в который будут переноситься сотрудники).
 
-// Пример:
-// moveEmployees(2, 3)
+const moveEmployees = function(currentId, newId) {
+let current = getDepartment(currentId);
+const newDept = getDepartment(newId);
+if(current && newDept && getEnterpriseByDepartment(currentId) === getEnterpriseByDepartment(newId)) {
+  current.employees_count += current.employees_count;
+  current.employees_count = 0;
+} else throw new Error(`Something went wrong`)
+};
+
+moveEmployees(2,12)
+console.log(enterprises[0])
