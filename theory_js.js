@@ -130,14 +130,59 @@
 //  let result = sqr(22); //теперь в переменной будет храниться значение 16
 //  console.log(result);
 
+// Объекты
+// let toy = {
+//   name: 'barbi',
+//   material: 'plastic',
+//   speak: function() {
+//   console.log('I am a toy')
+// },
+//   myName() {
+//     console.log('Hello, I am toy ' + this.name)
+//   },
+//   myColor() {
+//     console.log('my color is red')
+//   },
+//   myWeight() {
+//     console.log('My weight is 5 pounds')
+//   }
+// }
 
-a => [":)"]
-b => [":):)"]
-c => [":):):)"]
-d => [":):):):)"]
-r => [":):):):):)"]
+// toy.myWeight()
 
-a = Object
-a = b = c = d = r
+function hi() {
+  console.log('Hello', this)
+}
 
-  console.log(r)
+hi()
+
+const man = {
+  name: 'David',
+  lastName: 'Pupkin',
+  age: '22',
+  weight: 90,
+  say: hi
+
+}
+
+const woman = {
+  name: 'Katrin',
+  lastName: 'Pupkin',
+  age: '22',
+  weight: 90,
+  say: hi
+
+}
+
+
+const logger = {
+  info: function(sex) {
+  console.log('Имя: ', this.name);
+  console.log('Фамилия: ', this.lastName);
+  console.log('Возраст: ', this.age);
+  console.log('Пол: ', sex);
+}
+}
+const loggerMan = logger.info.bind(man);
+
+loggerMan(man)
