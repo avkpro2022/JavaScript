@@ -150,39 +150,62 @@
 
 // toy.myWeight()
 
-function hi() {
-  console.log('Hello', this)
+// function hi() {
+//   console.log('Hello', this)
+// }
+
+// hi()
+
+// const man = {
+//   name: 'David',
+//   lastName: 'Pupkin',
+//   age: '22',
+//   weight: 90,
+//   say: hi
+
+// }
+
+// const woman = {
+//   name: 'Katrin',
+//   lastName: 'Pupkin',
+//   age: '22',
+//   weight: 90,
+//   say: hi
+
+// }
+
+
+// const logger = {
+//   info: function(sex) {
+//   console.log('Имя: ', this.name);
+//   console.log('Фамилия: ', this.lastName);
+//   console.log('Возраст: ', this.age);
+//   console.log('Пол: ', sex);
+// }
+// }
+// const loggerMan = logger.info.apply(man, ['мужской']);
+// const loggerWoman = logger.info.apply(woman, ['женский']);
+
+// // loggerMan()
+// // loggerWoman()
+
+// function creatSocLink(socialNetwork) {
+//   return function(nickname) {
+//     return `rokoko${socialNetwork}/${nickname}`;
+//   }
+// }
+
+// const creatSocVKLink = creatSocLink('vk')
+// console.log(creatSocVKLink('durov'))
+
+// Прототипы:
+
+const cat = {
+  name: 'Jeck',
+  weight: '5',
+  meow: function() {
+    console.log('meow')
+  }
 }
 
-hi()
-
-const man = {
-  name: 'David',
-  lastName: 'Pupkin',
-  age: '22',
-  weight: 90,
-  say: hi
-
-}
-
-const woman = {
-  name: 'Katrin',
-  lastName: 'Pupkin',
-  age: '22',
-  weight: 90,
-  say: hi
-
-}
-
-
-const logger = {
-  info: function(sex) {
-  console.log('Имя: ', this.name);
-  console.log('Фамилия: ', this.lastName);
-  console.log('Возраст: ', this.age);
-  console.log('Пол: ', sex);
-}
-}
-const loggerMan = logger.info.bind(man);
-
-loggerMan(man)
+cat.toString();
