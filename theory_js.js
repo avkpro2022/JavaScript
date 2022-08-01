@@ -200,12 +200,102 @@
 
 // Прототипы:
 
-const cat = {
-  name: 'Jeck',
-  weight: '5',
-  meow: function() {
-    console.log('meow')
-  }
-}
+// const cat = {
+//   name: 'Jeck',
+//   weight: '5',
+//   meow: function() {
+//     console.log('meow')
+//   }
+// }
 
-cat.toString();
+// cat.toString();
+
+
+// const worker = {
+//   name: 'Vasya',
+//   position: 'engineer'
+// };
+
+// // console.log(worker)
+
+// const manager = Object.create(worker);
+
+// // console.log(manager)
+
+// manager.name = 'Pety';
+// manager.position = 'project manager'
+
+// console.log(manager)
+
+// console.log('zapros')
+// const promise = new Promise(function(resolve, reject) {
+//   setTimeout(function() {
+//     console.log('turum-tu-tu');
+//     const data = {
+//       text: 'puru-ku-ku'
+//     };
+
+//     resolve(data);
+//   }, 2000);
+// });
+
+// promise.then(data =>
+//   new Promise(function(resolve, reject) {
+//   setTimeout(function() {
+//     data.other = true;
+//     resolve(data);
+//   }, 2000)
+// })
+// ).then(data =>
+//   console.log('eeeehhhhyyy', data)
+// );
+
+// console.log('zapros')
+// const promise = new Promise(function(resolve, reject) {
+//   setTimeout(function() {
+//     console.log('turum-tu-tu');
+//     const data = {
+//       text: 'puru-ku-ku'
+//     };
+
+//     reject(new Error('puk-puk'));
+//   }, 2000);
+// });
+
+// promise.then(data =>
+//   new Promise(function(resolve, reject) {
+//   setTimeout(function() {
+//     data.other = true;
+//     resolve(data);
+//   }, 2000)
+// })
+// ).then(data =>
+//   console.log('eeeehhhhyyy', data)
+// ). catch(err => console.error(err));
+
+console.log('zapros')
+const promise = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    console.log('turum-tu-tu');
+    const data = {
+      text: 'puru-ku-ku'
+    };
+
+    resolve(data);
+  }, 2000);
+});
+
+promise.then(data =>
+  new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    data.other = true;
+    resolve(data);
+  }, 2000)
+})
+).then(data =>
+  console.log('eeeehhhhyyy', data)
+).catch(err =>
+  console.error(err)
+  ).finally(() =>
+  console.log('end')
+  );
